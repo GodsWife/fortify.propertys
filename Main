@@ -1,0 +1,210 @@
+# fortify global
+
+
+
+
+
+#when set to true places all thick tools into debug mode
+
+#com.fortify.Debug=true
+
+#to selectively place a thick tool into debug mode (uneccessary if com.fortify.Debug is set to true)
+
+#com.fortify.awb.Debug=true
+
+#com.fortify.eclipse.Debug=true
+
+#com.fortify.VS.Debug=true
+
+
+
+
+com.fortify.SCAExecutablePath=C:\Program Files\HP_Fortify\HP_Fortify_SCA_and_Apps_4.30\bin\sourceanalyzer.exe
+
+
+
+# Specify the path to the working directory of the thick tools
+
+# ${win32.LocalAppdata} is a special variable that points to the windows
+
+# Local Application Data shell folder.  This is typically
+
+# C:\Documents and Settings\<user>\Local Settings\Application Data
+
+com.fortify.WorkingDirectory=${win32.LocalAppdata}/Fortify
+
+
+
+
+#com.fortify.InstallationUserName allows the definition of the username for this
+
+#installation.  ${FM.user.name} can be used to reference the stored Fortify Manager user name.
+
+com.fortify.InstallationUserName=${user.name}
+
+
+
+#the installation locale
+
+com.fortify.locale=en
+
+
+
+#when performing a scan of a website from Visual Studio in headless mode setting this property to false
+
+#will allow the scan to continue even if the ASP Pre-Compilation fails
+
+com.fortify.VS.RequireASPPrecompilation=true
+
+
+
+#when performing a scan of a website from Visual Studio setting this property to true will cause SCA
+
+#to translate the default ASP output instead of running the aspnet_compiler (it is recommended to manually
+
+#clean this cache before use of this setting
+
+#com.fortify.VS.SkipASPPrecompilation=true
+
+
+
+#to disable the use of the Code Navigation features in AWB (and improve runtime memory usage) set the
+
+#following property to true
+
+#com.fortify.model.DisableProgramInfo=true
+
+
+
+#to disable integration with C/CPP builds in Visual Studio set to true
+
+#com.fortify.VS.DisableCIntegration=true
+
+
+
+#the path used to store the manager client authentication token
+
+com.fortify.AuthenticationKey=${com.fortify.WorkingDirectory}/config/tools
+
+
+
+#Disable the fvdl validation in the UI
+
+#com.fortify.model.CheckSig=true
+
+
+
+#To minimize the data loaded from an FPR set this property to true (only basic issue information will be loaded)
+
+#com.fortify.model.MinimalLoad=true
+
+#
+
+#To respect settings of IssueParseFilters.properties set this property to true (will not be respected if
+
+#OptimizeMemory is enabled
+
+#com.fortify.model.UseIssueParseFilters=true
+
+# Enable this property for backwards compatibility with pre-2.5 migrated projects 
+
+#com.fortify.model.EnablePathElementBaseIndexShift=true
+
+
+# Default VM arguments used when Visual Studio plugin runs Java commands
+
+#com.fortify.visualstudio.vm.args=-Xmx256m
+
+
+
+# To enable manually removal of threadlocal transaction resource when a job completes.
+
+# this is to prevent a quartz/spring bug when cron trigger is happened, some threadlocal
+
+# resource is not released, thus cause an "Pre-bound JDBC Connection found!" error
+
+# Enable it when this problem occurs.
+
+# enable.clean.transaction.resource=true
+
+
+
+# IID mapping scheme
+
+#com.fortify.tools.iidmigrator.scheme=
+
+
+
+# cut off length for file path, if path is longer than this number
+# the last X number of characters will be kept in the file path for the issue
+# and the entry will be removed from sourcefilemap.
+
+max.file.path.length=255
+
+
+
+# Issue resolve strategy. Defines what .FPR project (default or imported) is assumed as base for merge conflict resolving.
+# Possible values are: 'DefaultToMasterValue', 'DefaultToImportValue', 'NoStrategy'
+# When not specified then 'DefaultToMasterValue' is assumed
+
+#com.fortify.model.MergeResolveStrategy=DefaultToMasterValue
+
+
+
+# if you would like to turn off ANDs and ORs parsing in searches and filters, set to 1; 
+# if you would like to have ANDs and ORs with no parentheses, set to 2; 
+# for future use (not supported yet): if you would like to have logical operations and use parentheses for operation precedence, set to 3;
+
+com.fortify.search.defaultSyntaxVer=2
+
+
+
+# Maximum number of Errors that are shown. 2500 is recommended for AWB. If set to -1, unlimited. If not set, -1 is used as default.
+
+#com.fortify.model.MaxEngineErrorCount=2500
+
+
+#Default .Net version details for each supported version of Visual Studio
+com.fortify.VS.DefaultFramework.10.0=DotNetFrameworkv40
+com.fortify.VS.DefaultFramework.11.0=DotNetFrameworkv45
+com.fortify.VS.DefaultFramework.12.0=DotNetFrameworkv451
+com.fortify.VS.DefaultFramework.14.0=DotNetFrameworkv451
+
+#.Net configuration for v1.1 
+com.fortify.VS.Frameworks.DotNetFrameworkv11.VSProjectVersionCode=1;
+com.fortify.VS.Frameworks.DotNetFrameworkv11.SDKRegistry="SOFTWARE\\Microsoft\\.NETFramework","sdkInstallRootv1.1","\\bin"
+
+#.Net configuration for v2.2 
+com.fortify.VS.Frameworks.DotNetFrameworkv20.VSProjectVersionCode=131072
+com.fortify.VS.Frameworks.DotNetFrameworkv20.SDKRegistry="SOFTWARE\\Microsoft\\.NETFramework","sdkInstallRootv2.0","\\bin"
+
+#.Net configuration for v3.0
+com.fortify.VS.Frameworks.DotNetFrameworkv30.VSProjectVersionCode=196608
+com.fortify.VS.Frameworks.DotNetFrameworkv30.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v6.0A","InstallationFolder"
+
+#.Net configuration for v3.5
+com.fortify.VS.Frameworks.DotNetFrameworkv35.VSProjectVersionCode=196613
+com.fortify.VS.Frameworks.DotNetFrameworkv35.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v6.0A","InstallationFolder"
+
+#.Net configuration for v4.0 
+com.fortify.VS.Frameworks.DotNetFrameworkv40.VSProjectVersionCode=262144
+com.fortify.VS.Frameworks.DotNetFrameworkv40.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v7.0A\\WinSDK-NetFx40Tools-x86","InstallationFolder"
+com.fortify.VS.Frameworks.DotNetFrameworkv40.DotNetFolder="v4.0.30319"
+
+#.Net configuration for v4.5
+com.fortify.VS.Frameworks.DotNetFrameworkv45.VSProjectVersionCode=262149
+com.fortify.VS.Frameworks.DotNetFrameworkv45.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v8.0A\\WinSDK-NetFx40Tools-x86","InstallationFolder"
+com.fortify.VS.Frameworks.DotNetFrameworkv45.SDKPaths="Microsoft SDKs\\Windows\\v8.0A\\bin\\NETFX 4.0 Tools\\";"Microsoft SDKs\\Windows\\v8.0A\\bin\\";"Microsoft SDKs\\Windows\\v8.0\\bin\\NETFX 4.0 Tools\\";"Microsoft SDKs\\Windows\\v8.0\\bin\\"
+com.fortify.VS.Frameworks.DotNetFrameworkv45.DotNetFolder="v4.0.30319"
+
+#.Net configuration for v4.5.1 
+com.fortify.VS.Frameworks.DotNetFrameworkv451.VSProjectVersionCode=451
+com.fortify.VS.Frameworks.DotNetFrameworkv451.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v8.1A\\WinSDK-NetFx40Tools-x86","InstallationFolder"
+com.fortify.VS.Frameworks.DotNetFrameworkv451.SDKPaths="Microsoft SDKs\\Windows\\v8.1A\\bin\\NETFX 4.5.1 Tools\\";"Microsoft SDKs\\Windows\\v8.1A\\bin\\";"Microsoft SDKs\\Windows\\v8.1\\bin\\NETFX 4.5.1 Tools\\";"Microsoft SDKs\\Windows\\v8.1\\bin\\"
+com.fortify.VS.Frameworks.DotNetFrameworkv451.DotNetFolder="v4.0.30319"
+
+#.Net default configuration, in the event the required binaries are not found in any of the above
+com.fortify.VS.Frameworks.default.SDKRegistry="SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v8.0A\\WinSDK-NetFx35Tools-x86","InstallationFolder";"SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v7.0A\\WinSDK-NetFx35Tools-x86","InstallationFolder";"SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows\\v6.1","InstallationFolder","\\bin"
+com.fortify.VS.Frameworks.default.VSProjectVersionCode=-1
+
+com.fortify.sca.IldasmPath=C:\\Program\ Files\ (x86)\\Microsoft\ SDKs\\Windows\\v8.0A\\bin\\NETFX\ 4.0\ Tools\\ildasm.exe
